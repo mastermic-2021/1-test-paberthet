@@ -8,6 +8,16 @@ decode(v) = {
 }
 text=readstr("input.txt")[1];
 k=encode("haricot");
+c = encode(text);
+
+decrypt(chiffre, clef, clair) = {
+for(i=1,#chiffre,concat(clair,(Mod(chiffre[i]-clef[Mod(i-1,#clef)+1],26))))
+}
+
+clair = [];
+clair=decrypt(c,k,clair);
+clair = decode(clair);
+print(clair);
 
 
 \\ resoudre l'exercice, bien mettre des ; a la fin des lignes
